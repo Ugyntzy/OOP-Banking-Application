@@ -5,23 +5,23 @@ import json  # Importing the json module to handle JSON data manipulation.
 # Define the base Account class
 class Account:
     def __init__(self, account_number, password, account_type, balance=0.0):
-        # Initialize the account attributes with the provided values or defaults
-        self.account_number = account_number  # Unique identifier for the account
-        self.password = password  # Password associated with the account for security
+        #  Firstly initialize the account attributes with the provided values or defaults
+        self.account_number = account_number  # Unique identifier for the each and every account
+        self.password = password  #  default password associated with the account for security
         self.account_type = account_type  # Type of the account (e.g., personal, business)
-        self.balance = balance  # Initial balance for the account, defaulting to 0.0
+        self.balance = balance  # Initial balance for the account, defaulting to 0.0(zero)
 
     def deposit(self, amount):
-        # Method to add money to the account balance
-        if amount > 0:  # Ensure the deposit amount is positive
-            self.balance += amount  # Increment the balance by the deposit amount
+        # Method to add money or deposit to the account balance
+        if amount > 0:  #  To ensure the deposit amount is positive
+            self.balance += amount  # Increment the balance by the deposit amount (balance + deposit ammount)
             print(f"Deposited ${amount}. New balance is ${self.balance}.")
         else:
-            print("Invalid deposit amount. Please enter a positive value.")  # Handle invalid deposit amounts
+            print("Invalid deposit amount. Please enter a positive value.")  # Handle invalid deposit amounts (negative values)
 
     def withdraw(self, amount):
         # Method to subtract money from the account balance
-        if 0 < amount <= self.balance:  # Ensure the amount is positive and within the available balance
+        if 0 < amount <= self.balance:  # Ensure  that the amount is positive and within the available balance
             self.balance -= amount  # Decrement the balance by the withdrawal amount
             print(f"Withdrew ${amount}. New balance is ${self.balance}.")
         else:
@@ -50,7 +50,7 @@ class Bank:
     def __init__(self):
         self.accounts = self.load_accounts()  # Load existing accounts from the file into the accounts dictionary
 
-    def load_accounts(self):
+    def lzoad_accounts(self):
         # Method to load accounts from the storage file
         if os.path.exists(self.accounts_file):  # Check if the accounts file exists
             with open(self.accounts_file, 'r') as file:  # Open the file in read mode
